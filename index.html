@@ -728,7 +728,7 @@
       .hero-stats             { justify-content: center; }
       .about .container       { grid-template-columns: 1fr; }
       .about-image-wrapper    { max-width: 400px; margin: 0 auto; }
-      .lessons-grid           { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
+      .lessons-grid           { grid-template-columns: 1fr !important; max-width: 420px !important; }
       .testimonial-grid       { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
       .contact .container     { grid-template-columns: 1fr; }
     }
@@ -854,10 +854,6 @@
   <div class="container">
     <div class="about-image-wrapper reveal">
       <div class="about-image-box">🎶</div>
-      <div class="about-accent-box">
-        <strong>15+</strong>
-        <span>ani de experiență</span>
-      </div>
     </div>
 
     <div class="about-text reveal">
@@ -892,51 +888,36 @@
 <section class="lessons" id="lectii">
   <div class="container">
     <div class="lessons-header reveal">
-      <p class="section-label">Lecțiile mele</p>
-      <h2 class="section-title">Alege pachetul potrivit</h2>
+      <h2 class="section-title">Ce îți ofer</h2>
     </div>
 
-    <div class="lessons-grid">
-      <!-- Card 1 -->
+    <div class="lessons-grid" style="grid-template-columns: 1fr 1fr; max-width: 800px; margin: 0 auto;">
+      <!-- Card Lecții -->
       <div class="lesson-card reveal">
-        <div class="lesson-icon">🌱</div>
-        <h3>Începător</h3>
-        <p>Primii pași în lumea chitarei — acorduri de bază, ritm și tehnici fundamentale.</p>
+        <div class="lesson-icon">🎸</div>
+        <h3>Lecție de chitară</h3>
+        <p>Lecții personalizate pentru toate nivelurile — de la începător la avansat.</p>
         <ul class="lesson-details">
-          <li>Acorduri majore & minore</li>
-          <li>Ritmuri de bază</li>
-          <li>Citire tablaturä</li>
-          <li>Primele piese complete</li>
-        </ul>
-        <div class="lesson-price">100 lei <small>/ ședință</small></div>
-      </div>
-
-      <!-- Card 2 -->
-      <div class="lesson-card reveal">
-        <div class="lesson-icon">🔥</div>
-        <h3>Intermediar</h3>
-        <p>Aprofundează-ți cunoștințele cu tehnici mai avansate și stil propriu.</p>
-        <ul class="lesson-details">
-          <li>Baré & acorduri extinse</li>
-          <li>Fingerpicking</li>
-          <li>Scări & moduri</li>
-          <li>Improvizație de bază</li>
-        </ul>
-        <div class="lesson-price">120 lei <small>/ ședință</small></div>
-      </div>
-
-      <!-- Card 3 -->
-      <div class="lesson-card reveal">
-        <div class="lesson-icon">🚀</div>
-        <h3>Avansat</h3>
-        <p>Rafinează-ți tehnica și dezvoltă-ți vocea muzicală unică.</p>
-        <ul class="lesson-details">
-          <li>Tehnici avansate de solo</li>
+          <li>Acorduri & ritmuri</li>
+          <li>Fingerpicking & tehnici de solo</li>
+          <li>Teorie muzicală & improvizație</li>
           <li>Compoziție & aranjamente</li>
-          <li>Improvizație avansată</li>
-          <li>Pregătire scenă & studio</li>
         </ul>
         <div class="lesson-price">150 lei <small>/ ședință</small></div>
+      </div>
+
+      <!-- Card Instrumente -->
+      <div class="lesson-card reveal">
+        <div class="lesson-icon">🎵</div>
+        <h3>Instrumente premium</h3>
+        <p>Pun la dispoziția elevului chitare electrice și acustice premium într-un spațiu dedicat.</p>
+        <ul class="lesson-details">
+          <li>Chitare acustice premium</li>
+          <li>Chitare electrice premium</li>
+          <li>Spațiu dedicat lecțiilor</li>
+          <li>Echipament profesional</li>
+        </ul>
+        <div class="lesson-price" style="color: var(--cream); font-size: 1.1rem;">Inclus în lecție</div>
       </div>
     </div>
   </div>
@@ -1001,7 +982,7 @@
         <div class="contact-info-icon">📍</div>
         <div>
           <h4>Locație</h4>
-          <p>București, România</p>
+          <p>Strada Matei Voievod 114, sector 2</p>
         </div>
       </div>
 
@@ -1009,7 +990,7 @@
         <div class="contact-info-icon">📞</div>
         <div>
           <h4>Telefon</h4>
-          <a href="tel:+40700000000">+40 700 000 000</a>
+          <a href="tel:+40737513037">0737 513 037</a>
         </div>
       </div>
 
@@ -1017,17 +998,10 @@
         <div class="contact-info-icon">✉️</div>
         <div>
           <h4>Email</h4>
-          <a href="mailto:contact@sorinsetreanu.ro">contact@sorinsetreanu.ro</a>
+          <a href="mailto:soringsetreanu@gmail.com">soringsetreanu@gmail.com</a>
         </div>
       </div>
 
-      <div class="contact-info-item">
-        <div class="contact-info-icon">🕐</div>
-        <div>
-          <h4>Program</h4>
-          <p>Luni – Vineri: 10:00 – 20:00<br>Sâmbătă: 10:00 – 14:00</p>
-        </div>
-      </div>
     </div>
 
     <div class="contact-actions reveal">
@@ -1035,23 +1009,23 @@
       <h3 class="section-title" style="font-size:1.6rem;">Alege metoda preferată</h3>
       <p style="color:var(--grey);line-height:1.7;margin-bottom:32px;font-size:.95rem;">Scrie-mi un mesaj sau sună-mă direct. Răspund de obicei în mai puțin de 24 de ore.</p>
 
-      <a href="tel:+40700000000" class="contact-action-btn">
+      <a href="tel:+40737513037" class="contact-action-btn">
         <span class="contact-action-icon">📞</span>
         <div>
           <strong>Sună-mă</strong>
-          <span>+40 700 000 000</span>
+          <span>0737 513 037</span>
         </div>
       </a>
 
-      <a href="mailto:contact@sorinsetreanu.ro?subject=Lecții de chitară" class="contact-action-btn">
+      <a href="mailto:soringsetreanu@gmail.com?subject=Lecții de chitară" class="contact-action-btn">
         <span class="contact-action-icon">✉️</span>
         <div>
           <strong>Trimite un email</strong>
-          <span>contact@sorinsetreanu.ro</span>
+          <span>soringsetreanu@gmail.com</span>
         </div>
       </a>
 
-      <a href="https://wa.me/40700000000?text=Bună! Aș dori să mă înscriu la lecții de chitară." class="contact-action-btn" target="_blank" rel="noopener">
+      <a href="https://wa.me/40737513037?text=Bună! Aș dori să mă înscriu la lecții de chitară." class="contact-action-btn" target="_blank" rel="noopener">
         <span class="contact-action-icon">💬</span>
         <div>
           <strong>WhatsApp</strong>
@@ -1069,9 +1043,7 @@
       <div class="footer-logo">Sorin<span>.</span>Chitară</div>
       <p class="footer-copy">&copy; 2026 Sorin Șetreanu. Toate drepturile rezervate.</p>
       <ul class="footer-socials">
-        <li><a href="#" aria-label="Facebook">f</a></li>
-        <li><a href="#" aria-label="Instagram">ig</a></li>
-        <li><a href="#" aria-label="YouTube">▶</a></li>
+        <li><a href="https://www.instagram.com/sorinsetreanu" aria-label="Instagram" target="_blank" rel="noopener">ig</a></li>
       </ul>
     </div>
   </div>
