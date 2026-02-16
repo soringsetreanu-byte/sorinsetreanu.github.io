@@ -494,9 +494,14 @@
     }
 
     .testimonial-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      display: flex;
+      flex-wrap: wrap;
       gap: 28px;
+      justify-content: center;
+    }
+    .testimonial-card {
+      flex: 0 1 calc(33.333% - 19px);
+      min-width: 280px;
     }
 
     .testimonial-card {
@@ -853,14 +858,14 @@
 <section class="about" id="despre">
   <div class="container">
     <div class="about-image-wrapper reveal">
-      <div class="about-image-box">🎶</div>
+      <div class="about-image-box"><img src="image.jpeg" alt="Sorin Șetreanu" style="width:100%;height:100%;object-fit:cover;" /></div>
     </div>
 
     <div class="about-text reveal">
       <p class="section-label">Despre mine</p>
       <h2 class="section-title">Pasiune, răbdare și dedicare</h2>
-      <p>Sunt Sorin Șetreanu și predau chitară de peste 15 ani. Am început să cânt de la vârsta de 12 ani, iar de atunci chitara a devenit mai mult decât un hobby — este o vocație.</p>
-      <p>Abordarea mea se bazează pe înțelegerea nevoilor fiecărui elev. Fie că vrei să cânți la foc de tabără, să compui propriile piese sau să stăpânești tehnici avansate, voi fi alături de tine pas cu pas.</p>
+      <p>Salut. Eu sunt Sorin si predau chitara de 8 ani. In decursul timpului am avut elevi si de 5, si de 65 de ani. Cu toti am incercat sa fac studiul instrumentului cat mai fun si satisfacator.</p>
+      <p>Cel mai important pentru mine e sa iti arat cat de placut e sa petreci timp cu o chitara la tine in brate. De acolo e imposibil sa nu existe si progres. Fie ca vrei sa inveti cateva piese pentru un foc de tabara sau muzica e o parte importanta din viata ta, sunt aici sa impartasesc tot ce stiu si am invatat in decursul anilor. Te astept la cursuri!</p>
 
       <div class="about-features">
         <div class="about-feature">
@@ -875,10 +880,6 @@
           <div class="icon">📝</div>
           <span>Teorie muzicală</span>
         </div>
-        <div class="about-feature">
-          <div class="icon">🎤</div>
-          <span>Acompaniament vocal</span>
-        </div>
       </div>
     </div>
   </div>
@@ -888,6 +889,7 @@
 <section class="lessons" id="lectii">
   <div class="container">
     <div class="lessons-header reveal">
+      <p class="section-label">Lecții de chitară</p>
       <h2 class="section-title">Ce îți ofer</h2>
     </div>
 
@@ -934,19 +936,19 @@
     <div class="testimonial-grid">
       <div class="testimonial-card reveal">
         <div class="quote-mark">"</div>
-        <p>Sorin are un dar aparte de a explica lucrurile simplu. În doar 3 luni am reușit să cânt piese pe care le credeam imposibile.</p>
+        <p>Am inceput lectiile fara sa stiu sa tin chitara in mana, sincer. Dupa vreo 2 luni deja cantam cateva piese si ma simteam super bine. Sorin e foarte relaxat si rabdator, nu te simti niciodata prost ca nu stii ceva.</p>
         <div class="testimonial-author">
           <div class="testimonial-avatar">MA</div>
           <div>
             <div class="testimonial-name">Maria A.</div>
-            <div class="testimonial-role">Elevă, 8 luni</div>
+            <div class="testimonial-role">Eleva, 8 luni</div>
           </div>
         </div>
       </div>
 
       <div class="testimonial-card reveal">
         <div class="quote-mark">"</div>
-        <p>Recomand cu încredere! Atmosfera este relaxată, iar progresul se simte de la o lecție la alta. Cel mai bun profesor!</p>
+        <p>Cel mai misto lucru e ca nu simti ca esti la o lectie clasica. E mai mult o discutie despre muzica in care inveti o gramada fara sa-ti dai seama. Recomand cu toata increderea.</p>
         <div class="testimonial-author">
           <div class="testimonial-avatar">AP</div>
           <div>
@@ -958,12 +960,36 @@
 
       <div class="testimonial-card reveal">
         <div class="quote-mark">"</div>
-        <p>Am venit fără nicio cunoștință muzicală și acum cânt la foc de tabără. Mulțumesc, Sorin, pentru răbdare și profesionalism!</p>
+        <p>Copilul meu de 9 ani abia asteapta sa vina la lectie in fiecare saptamana. Sorin stie exact cum sa tina atentia unui copil si sa faca totul distractiv. Suntem foarte multumiti!</p>
         <div class="testimonial-author">
           <div class="testimonial-avatar">IC</div>
           <div>
             <div class="testimonial-name">Ioana C.</div>
-            <div class="testimonial-role">Elevă, 6 luni</div>
+            <div class="testimonial-role">Parinte</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card reveal">
+        <div class="quote-mark">"</div>
+        <p>Am 45 de ani si mi-am zis ca e acum ori niciodata. Sorin m-a facut sa ma simt super confortabil de la prima lectie. Acum cant la gratare si toata lumea ramane surprinsa, haha.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">DM</div>
+          <div>
+            <div class="testimonial-name">Dan M.</div>
+            <div class="testimonial-role">Elev, 6 luni</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card reveal">
+        <div class="quote-mark">"</div>
+        <p>Cantam de cativa ani singur acasa dar simteam ca stagnez. Lectiile cu Sorin m-au deblocat complet, am invatat chestii pe care nu le-as fi descoperit niciodata pe cont propriu. Super profesor.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">RT</div>
+          <div>
+            <div class="testimonial-name">Radu T.</div>
+            <div class="testimonial-role">Elev, 4 luni</div>
           </div>
         </div>
       </div>
