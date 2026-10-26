@@ -1,1116 +1,376 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lecții de Chitară — Sorin Șetreanu</title>
-  <meta name="description" content="Lecții de chitară cu Sorin Șetreanu — învață chitară acustică și electrică, de la începător la avansat." />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
-  <style>
-    /* ─── Reset & Variables ─────────────────────────────── */
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
-    :root {
-      --navy:   #1E2A38;
-      --cream:  #F4EDE4;
-      --orange: #C96A2D;
-      --grey:   #8A8F98;
-      --font-heading: 'Playfair Display', Georgia, serif;
-      --font-body:    'Inter', system-ui, sans-serif;
-    }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: var(--font-body);
-      color: var(--cream);
-      background: var(--navy);
-      overflow-x: hidden;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    img { max-width: 100%; display: block; }
-    a   { text-decoration: none; color: inherit; }
-
-    /* ─── Utility ────────────────────────────────────────── */
-    .container { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
-
-    .section-label {
-      font-family: var(--font-body);
-      font-weight: 500;
-      font-size: .8rem;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--orange);
-      margin-bottom: 12px;
-    }
-
-    .section-title {
-      font-family: var(--font-heading);
-      font-size: clamp(2rem, 4vw, 3rem);
-      line-height: 1.2;
-      margin-bottom: 20px;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 14px 36px;
-      border-radius: 6px;
-      font-weight: 600;
-      font-size: .95rem;
-      letter-spacing: .5px;
-      transition: all .3s ease;
-      cursor: pointer;
-      border: none;
-    }
-
-    .btn-primary {
-      background: var(--orange);
-      color: var(--cream);
-    }
-    .btn-primary:hover {
-      background: #b55d25;
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(201,106,45,.35);
-    }
-
-    .btn-outline {
-      background: transparent;
-      color: var(--cream);
-      border: 2px solid var(--grey);
-    }
-    .btn-outline:hover {
-      border-color: var(--orange);
-      color: var(--orange);
-    }
-
-    /* ─── Navigation ─────────────────────────────────────── */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      padding: 20px 0;
-      transition: background .35s, padding .35s, box-shadow .35s;
-    }
-    nav.scrolled {
-      background: rgba(30,42,56,.95);
-      backdrop-filter: blur(12px);
-      padding: 14px 0;
-      box-shadow: 0 2px 24px rgba(0,0,0,.25);
-    }
-    nav .container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .nav-logo {
-      font-family: var(--font-heading);
-      font-size: 1.35rem;
-      font-weight: 700;
-      color: var(--cream);
-    }
-    .nav-logo span { color: var(--orange); }
-
-    .nav-links { display: flex; gap: 32px; list-style: none; }
-    .nav-links a {
-      font-size: .88rem;
-      font-weight: 500;
-      color: var(--grey);
-      letter-spacing: .5px;
-      transition: color .25s;
-      position: relative;
-    }
-    .nav-links a::after {
-      content: '';
-      position: absolute;
-      bottom: -4px; left: 0;
-      width: 0; height: 2px;
-      background: var(--orange);
-      transition: width .3s;
-    }
-    .nav-links a:hover,
-    .nav-links a.active { color: var(--cream); }
-    .nav-links a:hover::after,
-    .nav-links a.active::after { width: 100%; }
-
-    .nav-cta {
-      font-size: .85rem;
-      padding: 10px 24px;
-    }
-
-    /* Mobile hamburger */
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      background: none;
-      border: none;
-      padding: 4px;
-    }
-    .hamburger span {
-      width: 24px; height: 2px;
-      background: var(--cream);
-      border-radius: 2px;
-      transition: all .3s;
-    }
-
-    /* ─── Hero ───────────────────────────────────────────── */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      position: relative;
-      overflow: hidden;
-      background:
-        radial-gradient(ellipse 80% 60% at 70% 40%, rgba(201,106,45,.08), transparent),
-        radial-gradient(ellipse 60% 50% at 20% 80%, rgba(30,42,56,.6), transparent),
-        var(--navy);
-    }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: -120px; right: -80px;
-      width: 500px; height: 500px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(201,106,45,.06) 0%, transparent 70%);
-      animation: float 8s ease-in-out infinite;
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translate(0, 0); }
-      50%      { transform: translate(-20px, 30px); }
-    }
-
-    .hero .container {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      align-items: center;
-      padding-top: 100px;
-      padding-bottom: 80px;
-    }
-
-    .hero-content { position: relative; z-index: 2; }
-
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(201,106,45,.12);
-      border: 1px solid rgba(201,106,45,.25);
-      color: var(--orange);
-      font-size: .78rem;
-      font-weight: 600;
-      letter-spacing: 1.5px;
-      text-transform: uppercase;
-      padding: 8px 18px;
-      border-radius: 30px;
-      margin-bottom: 28px;
-    }
-
-    .hero h1 {
-      font-family: var(--font-heading);
-      font-size: clamp(2.6rem, 5.5vw, 4.2rem);
-      line-height: 1.1;
-      margin-bottom: 24px;
-    }
-    .hero h1 em {
-      font-style: italic;
-      color: var(--orange);
-    }
-
-    .hero-sub {
-      font-size: 1.08rem;
-      line-height: 1.7;
-      color: var(--grey);
-      max-width: 480px;
-      margin-bottom: 40px;
-    }
-
-    .hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; }
-
-    /* Hero visual — decorative guitar silhouette */
-    .hero-visual {
-      position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .hero-visual-circle {
-      width: 400px; height: 400px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, rgba(201,106,45,.10), rgba(30,42,56,.4));
-      border: 1px solid rgba(138,143,152,.15);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: relative;
-    }
-
-    .hero-visual-circle::before {
-      content: '';
-      position: absolute;
-      inset: -30px;
-      border-radius: 50%;
-      border: 1px dashed rgba(138,143,152,.12);
-      animation: spin 40s linear infinite;
-    }
-
-    @keyframes spin { to { transform: rotate(360deg); } }
-
-    .guitar-icon {
-      font-size: 8rem;
-      filter: grayscale(.2);
-      animation: float 6s ease-in-out infinite;
-    }
-
-    /* Stats row */
-    .hero-stats {
-      display: flex;
-      gap: 48px;
-      margin-top: 48px;
-      padding-top: 32px;
-      border-top: 1px solid rgba(138,143,152,.15);
-    }
-
-    .hero-stat strong {
-      display: block;
-      font-family: var(--font-heading);
-      font-size: 1.8rem;
-      color: var(--orange);
-    }
-    .hero-stat span {
-      font-size: .82rem;
-      color: var(--grey);
-      letter-spacing: .5px;
-    }
-
-    /* ─── About ──────────────────────────────────────────── */
-    .about {
-      padding: 120px 0;
-      background: var(--navy);
-      position: relative;
-    }
-
-    .about .container {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: center;
-    }
-
-    .about-image-wrapper {
-      position: relative;
-    }
-
-    .about-image-box {
-      width: 100%;
-      aspect-ratio: 4/5;
-      border-radius: 16px;
-      background: linear-gradient(135deg, rgba(201,106,45,.08), rgba(30,42,56,.6));
-      border: 1px solid rgba(138,143,152,.12);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 6rem;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .about-image-box::after {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      height: 40%;
-      background: linear-gradient(to top, var(--navy), transparent);
-    }
-
-    .about-accent-box {
-      position: absolute;
-      bottom: -20px; right: -20px;
-      width: 180px;
-      padding: 20px;
-      background: var(--orange);
-      border-radius: 12px;
-      text-align: center;
-      z-index: 2;
-    }
-    .about-accent-box strong {
-      display: block;
-      font-family: var(--font-heading);
-      font-size: 2.2rem;
-      color: var(--cream);
-    }
-    .about-accent-box span {
-      font-size: .82rem;
-      color: rgba(244,237,228,.8);
-    }
-
-    .about-text p {
-      color: var(--grey);
-      line-height: 1.8;
-      margin-bottom: 18px;
-      font-size: .98rem;
-    }
-
-    .about-features {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-      margin-top: 32px;
-    }
-    .about-feature {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: .9rem;
-      color: var(--cream);
-    }
-    .about-feature .icon {
-      width: 36px; height: 36px;
-      border-radius: 8px;
-      background: rgba(201,106,45,.12);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.1rem;
-      flex-shrink: 0;
-    }
-
-    /* ─── Lessons ─────────────────────────────────────────── */
-    .lessons {
-      padding: 120px 0;
-      background: linear-gradient(180deg, var(--navy) 0%, #1a2533 100%);
-    }
-
-    .lessons-header {
-      text-align: center;
-      max-width: 560px;
-      margin: 0 auto 64px;
-    }
-
-    .lessons-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 28px;
-    }
-
-    .lesson-card {
-      background: rgba(244,237,228,.03);
-      border: 1px solid rgba(138,143,152,.1);
-      border-radius: 16px;
-      padding: 40px 32px;
-      transition: all .35s ease;
-      position: relative;
-      overflow: hidden;
-    }
-    .lesson-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 3px;
-      background: var(--orange);
-      transform: scaleX(0);
-      transition: transform .35s;
-    }
-    .lesson-card:hover {
-      background: rgba(244,237,228,.06);
-      border-color: rgba(201,106,45,.25);
-      transform: translateY(-6px);
-      box-shadow: 0 20px 50px rgba(0,0,0,.25);
-    }
-    .lesson-card:hover::before { transform: scaleX(1); }
-
-    .lesson-icon {
-      width: 56px; height: 56px;
-      border-radius: 12px;
-      background: rgba(201,106,45,.1);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.6rem;
-      margin-bottom: 24px;
-    }
-
-    .lesson-card h3 {
-      font-family: var(--font-heading);
-      font-size: 1.3rem;
-      margin-bottom: 12px;
-    }
-
-    .lesson-card p {
-      color: var(--grey);
-      font-size: .9rem;
-      line-height: 1.7;
-      margin-bottom: 24px;
-    }
-
-    .lesson-details {
-      list-style: none;
-      margin-bottom: 28px;
-    }
-    .lesson-details li {
-      font-size: .84rem;
-      color: var(--grey);
-      padding: 6px 0;
-      border-bottom: 1px solid rgba(138,143,152,.08);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .lesson-details li::before {
-      content: '✓';
-      color: var(--orange);
-      font-weight: 700;
-    }
-
-    .lesson-price {
-      font-family: var(--font-heading);
-      font-size: 1.6rem;
-      color: var(--orange);
-    }
-    .lesson-price small {
-      font-family: var(--font-body);
-      font-size: .8rem;
-      color: var(--grey);
-      font-weight: 400;
-    }
-
-    /* ─── Testimonials ───────────────────────────────────── */
-    .testimonials {
-      padding: 120px 0;
-      background: var(--navy);
-    }
-
-    .testimonials-header {
-      text-align: center;
-      max-width: 560px;
-      margin: 0 auto 64px;
-    }
-
-    .testimonial-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 28px;
-    }
-
-    .testimonial-card {
-      background: rgba(244,237,228,.03);
-      border: 1px solid rgba(138,143,152,.08);
-      border-radius: 16px;
-      padding: 36px 30px;
-      position: relative;
-    }
-
-    .testimonial-card .quote-mark {
-      font-family: var(--font-heading);
-      font-size: 4rem;
-      color: var(--orange);
-      opacity: .3;
-      line-height: 1;
-      position: absolute;
-      top: 20px; left: 28px;
-    }
-
-    .testimonial-card p {
-      color: var(--grey);
-      font-size: .92rem;
-      line-height: 1.75;
-      margin-bottom: 24px;
-      position: relative;
-      z-index: 1;
-      font-style: italic;
-    }
-
-    .testimonial-author {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
-
-    .testimonial-avatar {
-      width: 44px; height: 44px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--orange), #e8894a);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: .85rem;
-      color: var(--cream);
-    }
-
-    .testimonial-name {
-      font-weight: 600;
-      font-size: .9rem;
-      color: var(--cream);
-    }
-    .testimonial-role {
-      font-size: .78rem;
-      color: var(--grey);
-    }
-
-    /* ─── CTA Band ───────────────────────────────────────── */
-    .cta-band {
-      padding: 100px 0;
-      background:
-        linear-gradient(135deg, rgba(201,106,45,.12), rgba(30,42,56,.8)),
-        var(--navy);
-      text-align: center;
-    }
-
-    .cta-band .section-title { margin-bottom: 16px; }
-    .cta-band p {
-      color: var(--grey);
-      max-width: 520px;
-      margin: 0 auto 40px;
-      line-height: 1.7;
-    }
-
-    .cta-buttons { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
-
-    /* ─── Contact ─────────────────────────────────────────── */
-    .contact {
-      padding: 120px 0;
-      background: #1a2533;
-    }
-
-    .contact .container {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-      align-items: start;
-    }
-
-    .contact-info-item {
-      display: flex;
-      gap: 16px;
-      margin-bottom: 32px;
-    }
-
-    .contact-info-icon {
-      width: 48px; height: 48px;
-      border-radius: 12px;
-      background: rgba(201,106,45,.1);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.2rem;
-      flex-shrink: 0;
-    }
-
-    .contact-info-item h4 {
-      font-size: .9rem;
-      margin-bottom: 4px;
-      color: var(--cream);
-    }
-
-    .contact-info-item p,
-    .contact-info-item a {
-      font-size: .88rem;
-      color: var(--grey);
-      line-height: 1.5;
-    }
-    .contact-info-item a:hover { color: var(--orange); }
-
-    .contact-form {
-      display: flex;
-      flex-direction: column;
-      gap: 18px;
-    }
-
-    .contact-action-btn {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      padding: 20px 24px;
-      border-radius: 12px;
-      background: rgba(244,237,228,.04);
-      border: 1px solid rgba(138,143,152,.12);
-      margin-bottom: 16px;
-      transition: all .3s ease;
-    }
-    .contact-action-btn:hover {
-      background: rgba(201,106,45,.08);
-      border-color: rgba(201,106,45,.3);
-      transform: translateX(6px);
-    }
-    .contact-action-btn .contact-action-icon {
-      width: 52px; height: 52px;
-      border-radius: 12px;
-      background: rgba(201,106,45,.1);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.4rem;
-      flex-shrink: 0;
-    }
-    .contact-action-btn strong {
-      display: block;
-      font-size: .95rem;
-      color: var(--cream);
-      margin-bottom: 2px;
-    }
-    .contact-action-btn span {
-      font-size: .84rem;
-      color: var(--grey);
-    }
-
-    /* ─── Footer ──────────────────────────────────────────── */
-    footer {
-      padding: 48px 0 32px;
-      background: var(--navy);
-      border-top: 1px solid rgba(138,143,152,.1);
-    }
-
-    .footer-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 16px;
-    }
-
-    .footer-logo {
-      font-family: var(--font-heading);
-      font-size: 1.15rem;
-      font-weight: 700;
-    }
-    .footer-logo span { color: var(--orange); }
-
-    .footer-copy {
-      font-size: .8rem;
-      color: var(--grey);
-    }
-
-    .footer-socials {
-      display: flex;
-      gap: 12px;
-      list-style: none;
-    }
-    .footer-socials a {
-      width: 38px; height: 38px;
-      border-radius: 8px;
-      border: 1px solid rgba(138,143,152,.15);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: .95rem;
-      transition: all .25s;
-    }
-    .footer-socials a:hover {
-      background: var(--orange);
-      border-color: var(--orange);
-    }
-
-    /* ─── Animations (scroll reveal) ─────────────────────── */
-    .reveal {
-      opacity: 0;
-      transform: translateY(32px);
-      transition: opacity .7s ease, transform .7s ease;
-    }
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* ─── Responsive ─────────────────────────────────────── */
-    @media (max-width: 960px) {
-      .hero .container       { grid-template-columns: 1fr; text-align: center; }
-      .hero-visual            { display: none; }
-      .hero-sub               { margin: 0 auto 40px; }
-      .hero-buttons           { justify-content: center; }
-      .hero-stats             { justify-content: center; }
-      .about .container       { grid-template-columns: 1fr; }
-      .about-image-wrapper    { max-width: 400px; margin: 0 auto; }
-      .lessons-grid           { grid-template-columns: 1fr; max-width: 420px; margin: 0 auto; }
-      .testimonial-grid       { grid-template-columns: 1fr; max-width: 480px; margin: 0 auto; }
-      .contact .container     { grid-template-columns: 1fr; }
-    }
-
-    @media (max-width: 640px) {
-      .nav-links      { display: none; }
-      .nav-cta        { display: none; }
-      .hamburger      { display: flex; }
-      .hero h1        { font-size: 2.2rem; }
-      .hero-stats     { flex-direction: column; gap: 20px; align-items: center; }
-      .about-features { grid-template-columns: 1fr; }
-      .form-row       { grid-template-columns: 1fr; }
-    }
-
-    /* Mobile menu overlay */
-    .mobile-menu {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(30,42,56,.98);
-      backdrop-filter: blur(20px);
-      z-index: 101;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      gap: 32px;
-    }
-    .mobile-menu.open { display: flex; }
-    .mobile-menu a {
-      font-family: var(--font-heading);
-      font-size: 1.8rem;
-      color: var(--cream);
-      transition: color .25s;
-    }
-    .mobile-menu a:hover { color: var(--orange); }
-    .mobile-menu .close-btn {
-      position: absolute;
-      top: 24px; right: 24px;
-      font-size: 2rem;
-      color: var(--cream);
-      background: none;
-      border: none;
-      cursor: pointer;
-    }
-    .mobile-menu-header {
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 24px;
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lecții de chitară București, Sector 2 | Sorin Șetreanu</title>
+  <meta name="description" content="Lecții de chitară față în față în București, Sector 2 (Matei Voievod). Pentru copii de la 5 ani, adolescenți și adulți. Învățăm prin piese, practic și relaxat.">
+  <link rel="canonical" href="https://sorinsetreanu.ro/">
+  <meta name="theme-color" content="#1E2A38">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ro_RO">
+  <meta property="og:title" content="Lecții de chitară în București, Sector 2 — Sorin Șetreanu">
+  <meta property="og:description" content="Învață chitară prin piesele care-ți plac. Lecții fizice în studio, pe Matei Voievod 114.">
+  <meta property="og:url" content="https://sorinsetreanu.ro/">
+  <meta property="og:image" content="https://sorinsetreanu.ro/assets/img/sorin-hero.jpg">
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='15' fill='%231E2A38'/%3E%3Ccircle cx='16' cy='16' r='9' fill='%23C96A2D'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Oswald:wght@500&family=Caveat:wght@500;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": "https://sorinsetreanu.ro/#business",
+    "name": "Lecții chitară București — Sorin Șetreanu",
+    "description": "Lecții de chitară față în față pentru copii, adolescenți și adulți, în București, Sector 2.",
+    "url": "https://sorinsetreanu.ro/",
+    "telephone": "+40737513037",
+    "image": "https://sorinsetreanu.ro/assets/img/sorin-hero.jpg",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Strada Matei Voievod 114",
+      "addressLocality": "București",
+      "addressRegion": "Sector 2",
+      "addressCountry": "RO"
+    },
+    "areaServed": "București",
+    "founder": { "@type": "Person", "name": "Sorin Șetreanu" },
+    "sameAs": ["https://www.instagram.com/sorinsetreanu"]
+  }
+  </script>
 </head>
 <body>
 
-<!-- ────────── NAVIGATION ────────── -->
-<nav id="navbar">
-  <div class="container">
-    <a href="#" class="nav-logo">Sorin<span>.</span>Chitară</a>
-    <ul class="nav-links">
-      <li><a href="#despre" class="active">Despre</a></li>
-      <li><a href="#lectii">Lecții</a></li>
-      <li><a href="#testimoniale">Testimoniale</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-    <a href="#contact" class="btn btn-primary nav-cta">Programează-te</a>
-    <button class="hamburger" onclick="document.getElementById('mobileMenu').classList.add('open')" aria-label="Meniu">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-</nav>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-phone" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></symbol>
+  <symbol id="i-whatsapp" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M3 21l1.65-3.8a9 9 0 1 1 3.4 2.9L3 21"/><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M9 10a.5.5 0 0 0 1 0V9a.5.5 0 0 0-1 0v1a5 5 0 0 0 5 5h1a.5.5 0 0 0 0-1h-1a.5.5 0 0 0 0 1"/></symbol>
+  <symbol id="i-instagram" viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="16" rx="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="3.5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="16.5" cy="7.5" r="1" fill="currentColor"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path fill="currentColor" d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1L12 17l-5.4 2.9 1-6.1-4.4-4.3 6.1-.9z"/></symbol>
+</svg>
 
-<!-- Mobile menu -->
-<div id="mobileMenu" class="mobile-menu">
-  <div class="mobile-menu-header">
-    <a href="#" class="nav-logo" onclick="this.closest('.mobile-menu').classList.remove('open')">Sorin<span>.</span>Chitară</a>
-    <button class="close-btn" onclick="document.getElementById('mobileMenu').classList.remove('open')" aria-label="Închide">&times;</button>
-  </div>
-  <a href="#despre"       onclick="this.closest('.mobile-menu').classList.remove('open')">Despre</a>
-  <a href="#lectii"       onclick="this.closest('.mobile-menu').classList.remove('open')">Lecții</a>
-  <a href="#testimoniale" onclick="this.closest('.mobile-menu').classList.remove('open')">Testimoniale</a>
-  <a href="#contact"      onclick="this.closest('.mobile-menu').classList.remove('open')">Contact</a>
-</div>
+<!-- ============ HEADER: un head de amp. Numele e brandul, meniul e panoul cu potențiometre ============ -->
+<header class="site-header">
+  <div class="wrap">
+    <div class="amp-head tolex">
+      <a href="#acasa" class="amp-grille grille" aria-label="Sorin Șetreanu — acasă">
+        <span class="amp-logo">Sorin<span>.</span>Chitară</span>
+        <span class="amp-model panel-label">Lecții de chitară</span>
+      </a>
 
-<!-- ────────── HERO ────────── -->
-<section class="hero">
-  <div class="container">
-    <div class="hero-content">
-      <div class="hero-badge">🎸 Lecții personalizate</div>
-      <h1>Lecții de <em>Chitară</em> cu Sorin Șetreanu</h1>
-      <p class="hero-sub">Descoperă bucuria muzicii într-un mediu relaxat și profesionist. De la primele acorduri până la improvizație — fiecare lecție este adaptată ritmului tău.</p>
-      <div class="hero-buttons">
-        <a href="#contact" class="btn btn-primary">Începe acum</a>
-        <a href="#lectii"  class="btn btn-outline">Vezi lecțiile</a>
+      <div class="amp-panel">
+        <span class="panel-io" aria-hidden="true"><span class="jacks"><span></span><span></span></span><span class="panel-label">Input</span></span>
+
+        <nav class="control-panel" id="meniu" aria-label="Meniu principal">
+          <ul>
+            <li><a class="knob-link" href="#acasa"><span class="knob"><span class="knob-cap"></span></span><span class="panel-label">Acasă</span></a></li>
+            <li><a class="knob-link" href="#despre"><span class="knob"><span class="knob-cap"></span></span><span class="panel-label">Despre</span></a></li>
+            <li><a class="knob-link" href="#lectii"><span class="knob"><span class="knob-cap"></span></span><span class="panel-label">Lecții</span></a></li>
+            <li><a class="knob-link" href="#recenzii"><span class="knob"><span class="knob-cap"></span></span><span class="panel-label">Recenzii</span></a></li>
+            <li><a class="knob-link" href="#articole"><span class="knob"><span class="knob-cap"></span></span><span class="panel-label">Articole</span></a></li>
+            <li><a class="knob-link" href="#contact"><span class="knob"><span class="knob-cap"></span></span><span class="panel-label">Contact</span></a></li>
+          </ul>
+        </nav>
+
+        <button class="menu-toggle" aria-expanded="false" aria-controls="meniu">
+          <span class="knob"><span class="knob-cap"></span></span><span class="panel-label">Meniu</span>
+        </button>
+
+        <span class="panel-power" aria-hidden="true"><span class="jewel"></span><span class="panel-label">Power</span></span>
       </div>
-      <div class="hero-stats">
-        <div class="hero-stat">
-          <strong>15+</strong>
-          <span>Ani de experiență</span>
-        </div>
-        <div class="hero-stat">
-          <strong>300+</strong>
-          <span>Elevi pregătiți</span>
-        </div>
-        <div class="hero-stat">
-          <strong>98%</strong>
-          <span>Satisfacție</span>
-        </div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ HERO ============ -->
+<section class="hero tolex" id="acasa">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="hero-kicker panel-label"><span class="jewel" aria-hidden="true"></span> Lecții fizice · București, Sector 2</p>
+      <h1>Cele mai mărfă lecții de chitară din București, <em>sper...</em></h1>
+      <p class="hero-sub">Salut, sunt Sorin, noul tău prof de chitară.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="tel:+40737513037"><svg><use href="#i-phone"/></svg>Sună-mă</a>
+        <a class="btn btn-ghost" href="https://wa.me/40737513037?text=Salut%20Sorin!%20Vreau%20s%C4%83%20m%C4%83%20programez%20la%20o%20lec%C8%9Bie%20de%20chitar%C4%83." target="_blank" rel="noopener"><svg><use href="#i-whatsapp"/></svg>Scrie-mi pe WhatsApp</a>
       </div>
     </div>
 
-    <div class="hero-visual">
-      <div class="hero-visual-circle">
-        <div class="guitar-icon">🎸</div>
+    <div class="cabinet grille">
+      <div class="cabinet-photo">
+        <img src="assets/img/sorin-hero.jpg" alt="Sorin Șetreanu cântând la chitară electrică pe scenă" width="860" height="1075" fetchpriority="high">
+      </div>
+      <div class="cabinet-badge">
+        <strong>5,0</strong>
+        <div><div class="stars" aria-label="5 stele">★★★★★</div><span style="font-size:13px">pe Google</span></div>
       </div>
     </div>
+  </div>
+
+  <div class="readouts">
+    <ul class="wrap">
+      <li><span class="knob is-max" style="--angle:60deg"><span class="knob-cap"></span></span><div><strong>10 ani</strong><span>de cântat la chitară</span></div></li>
+      <li><span class="knob is-max" style="--angle:20deg"><span class="knob-cap"></span></span><div><strong>5 ani</strong><span>de predat</span></div></li>
+      <li><span class="knob is-max"><span class="knob-cap"></span></span><div><strong>5,0 ★</strong><span>recenzii pe Google</span></div></li>    </ul>
   </div>
 </section>
 
-<!-- ────────── ABOUT ────────── -->
-<section class="about" id="despre">
-  <div class="container">
-    <div class="about-image-wrapper reveal">
-      <div class="about-image-box">🎶</div>
-      <div class="about-accent-box">
-        <strong>15+</strong>
-        <span>ani de experiență</span>
-      </div>
+<!-- ============ DESPRE ============ -->
+<section class="section" id="despre">
+  <div class="wrap about-grid">
+    <div class="about-photo reveal">
+      <img src="assets/img/sorin-despre.jpeg" alt="Sorin Șetreanu cântând la chitara electrică, live" width="1066" height="1600" loading="lazy">
     </div>
 
     <div class="about-text reveal">
-      <p class="section-label">Despre mine</p>
-      <h2 class="section-title">Pasiune, răbdare și dedicare</h2>
-      <p>Sunt Sorin Șetreanu și predau chitară de peste 15 ani. Am început să cânt de la vârsta de 12 ani, iar de atunci chitara a devenit mai mult decât un hobby — este o vocație.</p>
-      <p>Abordarea mea se bazează pe înțelegerea nevoilor fiecărui elev. Fie că vrei să cânți la foc de tabără, să compui propriile piese sau să stăpânești tehnici avansate, voi fi alături de tine pas cu pas.</p>
+      <div class="section-head" style="margin-bottom:24px">
+        <span class="panel-label">Despre mine</span>
+        <h2>Pe unde am umblat</h2>
+      </div>
+      <p class="lead">Până la chitară am experimentat cu tot felul de meserii creative.</p>
 
-      <div class="about-features">
-        <div class="about-feature">
-          <div class="icon">🎵</div>
-          <span>Chitară acustică</span>
-        </div>
-        <div class="about-feature">
-          <div class="icon">⚡</div>
-          <span>Chitară electrică</span>
-        </div>
-        <div class="about-feature">
-          <div class="icon">📝</div>
-          <span>Teorie muzicală</span>
-        </div>
-        <div class="about-feature">
-          <div class="icon">🎤</div>
-          <span>Acompaniament vocal</span>
-        </div>
+      <div class="signal-chain">
+        <span class="panel-label">Lanțul meu de semnal</span>
+        <ol class="chain">
+          <li><span class="stomp" aria-hidden="true"></span><strong>Liceu de arte</strong></li>
+          <li><span class="stomp" aria-hidden="true"></span><strong>Facultatea de film</strong></li>
+          <li><span class="stomp" aria-hidden="true"></span><strong>Stand-up</strong></li>
+          <li><span class="stomp" aria-hidden="true"></span><strong>Trupă de coveruri</strong></li>
+          <li class="chain-out"><span class="stomp" aria-hidden="true"></span><strong>Lecțiile cu tine</strong></li>
+        </ol>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ────────── LESSONS ────────── -->
-<section class="lessons" id="lectii">
-  <div class="container">
-    <div class="lessons-header reveal">
-      <p class="section-label">Lecțiile mele</p>
-      <h2 class="section-title">Alege pachetul potrivit</h2>
+<svg class="strings" viewBox="0 0 1200 46" preserveAspectRatio="none" aria-hidden="true">
+  <line x1="0" y1="6"  x2="1200" y2="6"  stroke-width="1"/>
+  <line x1="0" y1="13" x2="1200" y2="13" stroke-width="1.2"/>
+  <line x1="0" y1="20" x2="1200" y2="20" stroke-width="1.5"/>
+  <line x1="0" y1="27" x2="1200" y2="27" stroke-width="1.9"/>
+  <line x1="0" y1="34" x2="1200" y2="34" stroke-width="2.3"/>
+  <line x1="0" y1="41" x2="1200" y2="41" stroke-width="2.7"/>
+</svg>
+
+<!-- ============ LECȚIILE ============ -->
+<section class="section section-dark tolex" id="lectii">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="panel-label">Cum arată o lecție</span>
+      <h2>Se cântă</h2>
     </div>
 
-    <div class="lessons-grid">
-      <!-- Card 1 -->
-      <div class="lesson-card reveal">
-        <div class="lesson-icon">🌱</div>
-        <h3>Începător</h3>
-        <p>Primii pași în lumea chitarei — acorduri de bază, ritm și tehnici fundamentale.</p>
-        <ul class="lesson-details">
-          <li>Acorduri majore & minore</li>
-          <li>Ritmuri de bază</li>
-          <li>Citire tablaturä</li>
-          <li>Primele piese complete</li>
-        </ul>
-        <div class="lesson-price">100 lei <small>/ ședință</small></div>
+    <div class="lesson-grid">
+      <div class="features">
+        <article class="feature reveal"><div class="toggle" aria-hidden="true"></div><h3>Totul prin piese</h3><p>Îmi zici ce piesă vrei să cânți și de acolo pornim. Teoria o scoatem din piesă, când chiar ai nevoie de ea.</p></article>
+        <article class="feature reveal"><div class="toggle" aria-hidden="true"></div><h3>Accent pe practică</h3><p>Vorbim puțin și cântăm mult. Cam asta e toată filozofia.</p></article>
+        <article class="feature reveal"><div class="toggle" aria-hidden="true"></div><h3>În ritmul tău</h3><p>Nu contează cât de repede înveți. Am răbdare cât cuprinde, iar scopul meu e să facem treabă bună, nu treabă rapidă.</p></article>
+        <article class="feature reveal"><div class="toggle" aria-hidden="true"></div><h3>Atmosferă prietenoasă</h3><p>La lecții se râde mult. E un safe space în care nu te judecă nimeni, așa că poți greși liniștit.</p></article>
       </div>
 
-      <!-- Card 2 -->
-      <div class="lesson-card reveal">
-        <div class="lesson-icon">🔥</div>
-        <h3>Intermediar</h3>
-        <p>Aprofundează-ți cunoștințele cu tehnici mai avansate și stil propriu.</p>
-        <ul class="lesson-details">
-          <li>Baré & acorduri extinse</li>
-          <li>Fingerpicking</li>
-          <li>Scări & moduri</li>
-          <li>Improvizație de bază</li>
+      <aside class="spec-plate screws reveal">
+        <span class="panel-label">Specificații</span>
+        <h3>Lecție individuală</h3>
+        <ul class="spec-list">
+          <li><span>Durată</span><span>60 de minute</span></li>
+          <li><span>Unde</span><span>Studio, Matei Voievod 114</span></li>
+          <li><span>Chitară</span><span>Am eu și pentru tine</span></li>
+          <li><span>Program</span><span>Flexibil, cu weekenduri incluse</span></li>
         </ul>
-        <div class="lesson-price">120 lei <small>/ ședință</small></div>
-      </div>
+        <div class="price"><strong>150 lei</strong><span>/ lecție</span></div>
+        <a class="btn btn-dark" href="#contact">Programează o lecție</a>
+      </aside>
+    </div>
+  </div>
+</section>
 
-      <!-- Card 3 -->
-      <div class="lesson-card reveal">
-        <div class="lesson-icon">🚀</div>
-        <h3>Avansat</h3>
-        <p>Rafinează-ți tehnica și dezvoltă-ți vocea muzicală unică.</p>
-        <ul class="lesson-details">
-          <li>Tehnici avansate de solo</li>
-          <li>Compoziție & aranjamente</li>
-          <li>Improvizație avansată</li>
-          <li>Pregătire scenă & studio</li>
-        </ul>
-        <div class="lesson-price">150 lei <small>/ ședință</small></div>
+<!-- ============ PENTRU CINE ============ -->
+<section class="section" id="pentru-cine">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="panel-label">Pentru cine</span>
+      <h2>Bagă jack-ul în ce canal ți se potrivește</h2>
+    </div>
+    <div class="channels">
+      <div class="channel reveal">
+        <span class="input-jack panel-label">Input 1 · Vârstă</span>
+        <h3>De la 5 ani în sus</h3>
+        <ul class="chips"><li>Copii (5+)</li><li>Adolescenți</li><li>Adulți</li></ul>
+      </div>
+      <div class="channel reveal">
+        <span class="input-jack panel-label">Input 2 · Nivel</span>
+        <h3>De la zero sau de unde ai rămas</h3>
+        <ul class="chips"><li>Începători absoluți</li><li>Intermediari</li></ul>
+      </div>
+      <div class="channel reveal">
+        <span class="input-jack panel-label">Input 3 · Stil</span>
+        <h3>Ce vrei să cânți</h3>
+        <ul class="chips"><li>Acustică / pop</li><li>Rock</li><li>Blues</li><li>Chitară electrică</li></ul>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ────────── TESTIMONIALS ────────── -->
-<section class="testimonials" id="testimoniale">
-  <div class="container">
-    <div class="testimonials-header reveal">
-      <p class="section-label">Testimoniale</p>
-      <h2 class="section-title">Ce spun elevii mei</h2>
+<svg class="strings" viewBox="0 0 1200 46" preserveAspectRatio="none" aria-hidden="true">
+  <line x1="0" y1="6"  x2="1200" y2="6"  stroke-width="1"/>
+  <line x1="0" y1="13" x2="1200" y2="13" stroke-width="1.2"/>
+  <line x1="0" y1="20" x2="1200" y2="20" stroke-width="1.5"/>
+  <line x1="0" y1="27" x2="1200" y2="27" stroke-width="1.9"/>
+  <line x1="0" y1="34" x2="1200" y2="34" stroke-width="2.3"/>
+  <line x1="0" y1="41" x2="1200" y2="41" stroke-width="2.7"/>
+</svg>
+
+<!-- ============ RECENZII ============ -->
+<section class="section section-dark tolex" id="recenzii">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="panel-label">Recenzii</span>
+      <h2>Ce zic elevii, pe volum maxim</h2>
     </div>
 
-    <div class="testimonial-grid">
-      <div class="testimonial-card reveal">
-        <div class="quote-mark">"</div>
-        <p>Sorin are un dar aparte de a explica lucrurile simplu. În doar 3 luni am reușit să cânt piese pe care le credeam imposibile.</p>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar">MA</div>
-          <div>
-            <div class="testimonial-name">Maria A.</div>
-            <div class="testimonial-role">Elevă, 8 luni</div>
-          </div>
-        </div>
+    <div class="reviews-box reveal">
+      <div class="vu" aria-hidden="true">
+        <svg viewBox="0 0 200 133">
+          <path d="M30 92 A80 80 0 0 1 170 92" fill="none" stroke="#1E2A38" stroke-width="2"/>
+          <path d="M136 52 A80 80 0 0 1 170 92" fill="none" stroke="#C96A2D" stroke-width="6"/>
+          <g stroke="#1E2A38" stroke-width="2">
+            <line x1="30" y1="92" x2="22" y2="88"/><line x1="51" y1="62" x2="45" y2="56"/><line x1="82" y1="44" x2="79" y2="36"/>
+            <line x1="118" y1="44" x2="121" y2="36"/><line x1="149" y1="62" x2="155" y2="56"/><line x1="170" y1="92" x2="178" y2="88"/>
+          </g>
+          <line class="vu-needle" x1="100" y1="120" x2="100" y2="38" stroke="#C96A2D" stroke-width="2.5" stroke-linecap="round"/>
+          <circle cx="100" cy="120" r="6" fill="#1E2A38"/>
+        </svg>
+        <div class="vu-label">VU · 5.0</div>
       </div>
+      <div class="score">
+        <strong>5,0</strong>
+        <div class="stars" aria-label="5 din 5 stele">★★★★★</div>
+        <p>17 recenzii pe Google Maps, toate de 5 stele. Și nu, niciuna nu e de la mama.</p>
+      </div>
+      <a class="btn btn-primary" href="https://maps.google.com/?cid=17133961203990087716" target="_blank" rel="noopener"><svg><use href="#i-star"/></svg>Vezi recenziile</a>
+    </div>
 
-      <div class="testimonial-card reveal">
-        <div class="quote-mark">"</div>
-        <p>Recomand cu încredere! Atmosfera este relaxată, iar progresul se simte de la o lecție la alta. Cel mai bun profesor!</p>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar">AP</div>
-          <div>
-            <div class="testimonial-name">Andrei P.</div>
-            <div class="testimonial-role">Elev, 1 an</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="testimonial-card reveal">
-        <div class="quote-mark">"</div>
-        <p>Am venit fără nicio cunoștință muzicală și acum cânt la foc de tabără. Mulțumesc, Sorin, pentru răbdare și profesionalism!</p>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar">IC</div>
-          <div>
-            <div class="testimonial-name">Ioana C.</div>
-            <div class="testimonial-role">Elevă, 6 luni</div>
-          </div>
-        </div>
-      </div>
+    <!-- Stiva de tocuri: recenzii reale de pe Google Maps, semnate doar cu prenumele.
+         Cel mai mic toc stă sus, cel mai mare jos. Pentru o recenzie nouă copiază un <figure>. -->
+    <div class="case-stack">
+      <figure class="case case--orange reveal">
+        <blockquote>„Cel mai puternic profesor de chitară din București. Și are și părul foarte frumos.”</blockquote>
+        <figcaption class="case-tag">Mircea · ★★★★★</figcaption>
+      </figure>
+      <figure class="case case--navy reveal">
+        <blockquote>„Fun times! Sorin m-a ajutat foarte mult cu teoria, ceea ce aveam nevoie când am decis să merg la el. Am mers aproape un an. Recomand 100%!”</blockquote>
+        <figcaption class="case-tag">Paul · ★★★★★</figcaption>
+      </figure>
+      <figure class="case case--tweed reveal">
+        <blockquote>„Sorin este un om foarte pasionat de ceea ce face, iar acest lucru se reflectă în lecțiile sale. În 3 luni mi-a dezvoltat bagajul de cunoștințe și mi-a oferit lansarea de care aveam nevoie. Trei cuvinte care l-ar descrie ar fi: pasionat, prietenos, înțelegător.”</blockquote>
+        <figcaption class="case-tag">Vlad · ★★★★★</figcaption>
+      </figure>
+      <figure class="case case--brown reveal">
+        <blockquote>„Am venit la lecții fără niciun fel de experiență, iar Sorin m-a luat de la 0 și m-a ajutat să progresez. De asemenea, s-a adaptat după gusturile mele muzicale și ce îmi doresc să aprofundez la instrument. Lecții plăcute cu vibe super. Recomand cu căldură!!!”</blockquote>
+        <figcaption class="case-tag">Antonio · ★★★★★</figcaption>
+      </figure>
+      <figure class="case case--black reveal">
+        <blockquote>„Sorin este un profesor excelent de chitară, dar și un om care reușește să creeze rapid o conexiune autentică cu elevii lui. Fiul meu (12 ani) a prins drag de chitară foarte repede și abia așteaptă fiecare oră. A început să lase telefonul deoparte și, în loc să se joace, exersează riff-uri, scale și improvizații. […] Recomand cu toată încrederea!”</blockquote>
+        <figcaption class="case-tag">Ionut · ★★★★★</figcaption>
+      </figure>
     </div>
   </div>
 </section>
 
-<!-- ────────── CONTACT ────────── -->
-<section class="contact" id="contact">
-  <div class="container">
-    <div class="contact-left reveal">
-      <p class="section-label">Contact</p>
-      <h2 class="section-title">Hai să vorbim</h2>
-
-      <div class="contact-info-item">
-        <div class="contact-info-icon">📍</div>
-        <div>
-          <h4>Locație</h4>
-          <p>București, România</p>
-        </div>
-      </div>
-
-      <div class="contact-info-item">
-        <div class="contact-info-icon">📞</div>
-        <div>
-          <h4>Telefon</h4>
-          <a href="tel:+40700000000">+40 700 000 000</a>
-        </div>
-      </div>
-
-      <div class="contact-info-item">
-        <div class="contact-info-icon">✉️</div>
-        <div>
-          <h4>Email</h4>
-          <a href="mailto:contact@sorinsetreanu.ro">contact@sorinsetreanu.ro</a>
-        </div>
-      </div>
-
-      <div class="contact-info-item">
-        <div class="contact-info-icon">🕐</div>
-        <div>
-          <h4>Program</h4>
-          <p>Luni – Vineri: 10:00 – 20:00<br>Sâmbătă: 10:00 – 14:00</p>
-        </div>
-      </div>
+<!-- ============ ARTICOLE ============ -->
+<section class="section" id="articole">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="panel-label">Articole</span>
+      <h2>Din caietul de chitară</h2>
+      <p>Chestii pe care le tot explic la lecții, acum puse și în scris.</p>
     </div>
-
-    <div class="contact-actions reveal">
-      <p class="section-label">Contactează-mă direct</p>
-      <h3 class="section-title" style="font-size:1.6rem;">Alege metoda preferată</h3>
-      <p style="color:var(--grey);line-height:1.7;margin-bottom:32px;font-size:.95rem;">Scrie-mi un mesaj sau sună-mă direct. Răspund de obicei în mai puțin de 24 de ore.</p>
-
-      <a href="tel:+40700000000" class="contact-action-btn">
-        <span class="contact-action-icon">📞</span>
-        <div>
-          <strong>Sună-mă</strong>
-          <span>+40 700 000 000</span>
-        </div>
+    <div class="articles-grid">
+      <a class="article-card reveal" href="articole/cum-iti-alegi-prima-chitara.html">
+        <div class="thumb grille"><span class="knob is-max" style="--angle:-100deg"><span class="knob-cap"></span></span></div>
+        <div class="body"><span class="panel-label">Prima chitară</span><h3>Cum îți alegi prima chitară</h3><p>Cât să dai pe ea, la ce să te uiți în magazin și ce mai iei odată cu ea.</p></div>
       </a>
-
-      <a href="mailto:contact@sorinsetreanu.ro?subject=Lecții de chitară" class="contact-action-btn">
-        <span class="contact-action-icon">✉️</span>
-        <div>
-          <strong>Trimite un email</strong>
-          <span>contact@sorinsetreanu.ro</span>
-        </div>
+      <a class="article-card reveal" href="articole/chitara-pentru-copii.html">
+        <div class="thumb grille"><span class="knob is-max" style="--angle:-10deg"><span class="knob-cap"></span></span></div>
+        <div class="body"><span class="panel-label">Pentru părinți</span><h3>Ce chitară îi iei unui copil</h3><p>De ce recomand electricele junior și ce mărime îi trebuie.</p></div>
       </a>
-
-      <a href="https://wa.me/40700000000?text=Bună! Aș dori să mă înscriu la lecții de chitară." class="contact-action-btn" target="_blank" rel="noopener">
-        <span class="contact-action-icon">💬</span>
-        <div>
-          <strong>WhatsApp</strong>
-          <span>Scrie-mi pe WhatsApp</span>
-        </div>
+      <a class="article-card reveal" href="articole/cat-costa-sa-te-apuci-de-chitara.html">
+        <div class="thumb grille"><span class="knob is-max" style="--angle:80deg"><span class="knob-cap"></span></span></div>
+        <div class="body"><span class="panel-label">Buget</span><h3>Cât costă, de fapt, să te apuci de chitară</h3><p>Chitară, accesorii și lecții, puse cap la cap.</p></div>
       </a>
     </div>
+    <div class="articles-more reveal"><a class="btn btn-ghost" href="articole/">Toate articolele</a></div>
   </div>
 </section>
 
-<!-- ────────── FOOTER ────────── -->
-<footer>
-  <div class="container">
-    <div class="footer-inner">
-      <div class="footer-logo">Sorin<span>.</span>Chitară</div>
-      <p class="footer-copy">&copy; 2026 Sorin Șetreanu. Toate drepturile rezervate.</p>
-      <ul class="footer-socials">
-        <li><a href="#" aria-label="Facebook">f</a></li>
-        <li><a href="#" aria-label="Instagram">ig</a></li>
-        <li><a href="#" aria-label="YouTube">▶</a></li>
-      </ul>
+<!-- ============ ÎNTREBĂRI ============ -->
+<section class="section" id="intrebari" style="padding-top:0">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="panel-label">Întrebări frecvente</span>
+      <h2>Înainte să ne vedem</h2>
     </div>
+    <div class="faq reveal">
+      <details><summary>Trebuie să am chitara mea?</summary><p>Nu este necesar. În studio există chitare pe care le poți folosi la lecții, așa că poți începe și fără un instrument propriu. Dacă vrei să-ți cumperi unul, te pot ajuta să alegi un model potrivit nivelului și bugetului tău.</p></details>
+      <details><summary>De la ce vârstă pot începe copiii?</summary><p>Lecțiile sunt potrivite pentru copii de la 5 ani în sus. Pentru cei mici, ritmul și materialele sunt adaptate vârstei, iar lucrul se face pe piese pe care le cunosc deja.</p></details>
+      <details><summary>Trebuie să știu note sau teorie?</summary><p>Nu sunt necesare cunoștințe anterioare. Lecțiile pornesc direct de la piese, iar noțiunile de teorie muzicală sunt introduse treptat, pe măsură ce devin utile.</p></details>
+      <details><summary>Cât durează o lecție și cât de des?</summary><p>O lecție durează 60 de minute. Majoritatea elevilor vin o dată pe săptămână, însă frecvența se stabilește în funcție de disponibilitatea și obiectivele fiecăruia.</p></details>
+      <details><summary>Unde au loc lecțiile?</summary><p>Lecțiile au loc fizic, în studioul de pe Strada Matei Voievod nr. 114, Sector 2, București. Programul este flexibil și include și weekendul.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section class="section section-dark tolex" id="contact">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="panel-label">Contact</span>
+      <h2>Hai să dăm drumul la amp</h2>
+      <p>Dă-mi un telefon sau scrie-mi pe WhatsApp și vedem când te bagi la prima lecție.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-card screws reveal">
+        <h3>Programează o lecție</h3>
+        <div class="contact-actions">
+          <a class="btn btn-primary" href="tel:+40737513037"><svg><use href="#i-phone"/></svg>0737 513 037</a>
+          <a class="btn btn-dark" href="https://wa.me/40737513037?text=Salut%20Sorin!%20Vreau%20s%C4%83%20m%C4%83%20programez%20la%20o%20lec%C8%9Bie%20de%20chitar%C4%83." target="_blank" rel="noopener"><svg><use href="#i-whatsapp"/></svg>WhatsApp</a>
+        </div>
+        <ul class="contact-info">
+          <li><svg><use href="#i-pin"/></svg><span>Strada Matei Voievod 114<br>Sector 2, București</span></li>
+          <li><svg><use href="#i-clock"/></svg><span>Program flexibil, cu weekenduri incluse</span></li>
+          <li><svg><use href="#i-instagram"/></svg><a href="https://www.instagram.com/sorinsetreanu" target="_blank" rel="noopener">@sorinsetreanu</a></li>
+        </ul>
+      </div>
+      <div class="map reveal">
+        <iframe title="Harta studioului de pe Matei Voievod 114" src="https://www.google.com/maps?q=Strada+Matei+Voievod+114,+Bucure%C8%99ti&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer tolex">
+  <div class="piping" style="margin-top:-46px;margin-bottom:46px"></div>
+  <div class="wrap footer-inner">
+    <span class="brand-plate">Sorin<span>.</span>Chitară</span>
+    <ul class="footer-links">
+      <li><a href="#lectii">Lecții</a></li>
+      <li><a href="articole/">Articole</a></li>
+      <li><a href="https://www.instagram.com/sorinsetreanu" target="_blank" rel="noopener">Instagram</a></li>
+      <li><a href="tel:+40737513037">0737 513 037</a></li>
+    </ul>
+    <p style="margin:0">© <span data-year>2026</span> Sorin Șetreanu · Lecții de chitară București</p>
   </div>
 </footer>
 
-<!-- ────────── SCRIPTS ────────── -->
-<script>
-  // Navbar scroll effect
-  const nav = document.getElementById('navbar');
-  window.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 60);
-  });
-
-  // Scroll-reveal
-  const reveals = document.querySelectorAll('.reveal');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((e, i) => {
-      if (e.isIntersecting) {
-        setTimeout(() => e.target.classList.add('visible'), i * 80);
-        observer.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.15 });
-  reveals.forEach(el => observer.observe(el));
-
-  // Active nav link
-  const sections = document.querySelectorAll('section[id]');
-  window.addEventListener('scroll', () => {
-    const scrollY = window.scrollY + 200;
-    sections.forEach(sec => {
-      const link = document.querySelector(`.nav-links a[href="#${sec.id}"]`);
-      if (!link) return;
-      if (scrollY >= sec.offsetTop && scrollY < sec.offsetTop + sec.offsetHeight) {
-        document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
-        link.classList.add('active');
-      }
-    });
-  });
-</script>
-
+<script src="assets/js/main.js" defer></script>
 </body>
 </html>
