@@ -3,6 +3,25 @@
    Concept: amplificator vintage (tolex, panou de control, knob-uri, grilaj)
    ========================================================= */
 
+/* ---------- Fonturi găzduite pe site (licențe în assets/fonts) ---------- */
+/* latin = literele de bază, latin-ext = ă, ș, ț; browserul descarcă doar ce apare în pagină */
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 400; font-display: swap; src: url(../fonts/playfair-display-latin-400-normal.woff2) format("woff2"); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 400; font-display: swap; src: url(../fonts/playfair-display-latin-ext-400-normal.woff2) format("woff2"); unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 700; font-display: swap; src: url(../fonts/playfair-display-latin-700-normal.woff2) format("woff2"); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+@font-face { font-family: 'Playfair Display'; font-style: normal; font-weight: 700; font-display: swap; src: url(../fonts/playfair-display-latin-ext-700-normal.woff2) format("woff2"); unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+@font-face { font-family: 'Playfair Display'; font-style: italic; font-weight: 400; font-display: swap; src: url(../fonts/playfair-display-latin-400-italic.woff2) format("woff2"); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+@font-face { font-family: 'Playfair Display'; font-style: italic; font-weight: 400; font-display: swap; src: url(../fonts/playfair-display-latin-ext-400-italic.woff2) format("woff2"); unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+@font-face { font-family: 'Playfair Display'; font-style: italic; font-weight: 700; font-display: swap; src: url(../fonts/playfair-display-latin-700-italic.woff2) format("woff2"); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+@font-face { font-family: 'Playfair Display'; font-style: italic; font-weight: 700; font-display: swap; src: url(../fonts/playfair-display-latin-ext-700-italic.woff2) format("woff2"); unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+@font-face { font-family: 'Inter'; font-style: normal; font-weight: 100 900; font-display: swap; src: url(../fonts/inter-latin-wght-normal.woff2) format("woff2"); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+@font-face { font-family: 'Inter'; font-style: normal; font-weight: 100 900; font-display: swap; src: url(../fonts/inter-latin-ext-wght-normal.woff2) format("woff2"); unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+@font-face { font-family: 'Oswald'; font-style: normal; font-weight: 500; font-display: swap; src: url(../fonts/oswald-latin-500-normal.woff2) format("woff2"); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+@font-face { font-family: 'Oswald'; font-style: normal; font-weight: 500; font-display: swap; src: url(../fonts/oswald-latin-ext-500-normal.woff2) format("woff2"); unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+@font-face { font-family: 'Caveat'; font-style: normal; font-weight: 500; font-display: swap; src: url(../fonts/caveat-latin-500-normal.woff2) format("woff2"); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+@font-face { font-family: 'Caveat'; font-style: normal; font-weight: 500; font-display: swap; src: url(../fonts/caveat-latin-ext-500-normal.woff2) format("woff2"); unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+@font-face { font-family: 'Yellowtail'; font-style: normal; font-weight: 400; font-display: swap; src: url(../fonts/yellowtail-latin-400-normal.woff2) format("woff2"); unicode-range: U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD; }
+@font-face { font-family: 'Yellowtail'; font-style: normal; font-weight: 400; font-display: swap; src: url(../fonts/yellowtail-latin-ext-400-normal.woff2) format("woff2"); unicode-range: U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF; }
+
 :root {
   --navy:   #1E2A38;
   --navy-2: #16202B;
@@ -13,11 +32,16 @@
   --orange-2:#E07F3E;
   --grey:   #8A8F98;
   --grey-2: #5E636B;
+  /* nuanțe pentru text mic, ca să aibă contrast suficient */
+  --grey-light: #ADB2B9;   /* gri pe fundal închis */
+  --orange-light: #F29A5C; /* portocaliu pe fundal închis */
+  --orange-deep: #A8521E;  /* portocaliu pe crem și fundal de buton */
 
   --font-heading: 'Playfair Display', Georgia, serif;
   --font-body:    'Inter', system-ui, sans-serif;
   --font-panel:   'Oswald', 'Arial Narrow', sans-serif;
   --font-hand:    'Caveat', 'Segoe Print', cursive;
+  --font-logo:    'Yellowtail', 'Brush Script MT', cursive; /* scris de amp, ca logo-urile Fender */
 
   --wrap: 1180px;
   --radius: 10px;
@@ -39,7 +63,6 @@ a { color: inherit; }
 h1, h2, h3 { font-family: var(--font-heading); line-height: 1.15; margin: 0 0 .5em; }
 p { margin: 0 0 1em; }
 .wrap { width: 100%; max-width: var(--wrap); margin: 0 auto; padding: 0 24px; }
-.sr-only { position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
 
 /* ---------- Texturi ---------- */
 .tolex {
@@ -143,8 +166,9 @@ p { margin: 0 0 1em; }
   text-decoration: none;
 }
 .amp-logo {
-  font-family: var(--font-heading); font-style: italic; font-weight: 700;
-  font-size: 32px; line-height: 1; white-space: nowrap;
+  font-family: var(--font-logo); font-weight: 400;
+  font-size: 42px; line-height: 1.1; white-space: nowrap; padding: 0 4px 4px;
+  display: inline-block; transform: rotate(-4deg); /* ușor înclinat, ca pe amp */
   background: linear-gradient(180deg, #fffaf2 0%, var(--cream) 45%, #b5aea4 100%);
   -webkit-background-clip: text; background-clip: text; color: transparent;
   filter: drop-shadow(0 2px 0 rgba(0,0,0,.55));
@@ -174,8 +198,8 @@ p { margin: 0 0 1em; }
 .panel-power .jewel { margin: 9px 0 9px; }
 
 .brand-plate {
-  font-family: var(--font-heading); font-style: italic; font-weight: 700;
-  font-size: 26px; line-height: 1; color: var(--cream);
+  font-family: var(--font-logo); font-weight: 400;
+  font-size: 30px; line-height: 1; color: var(--cream);
   padding: 8px 16px 10px;
   border: 2px solid var(--grey);
   border-radius: 6px;
@@ -194,7 +218,7 @@ p { margin: 0 0 1em; }
 .knob-link .panel-label { font-size: 12px; }
 .knob-link:hover .knob-cap { transform: rotate(calc(var(--angle) + 40deg)); }
 .knob-link:focus-visible { outline: 2px solid var(--orange); outline-offset: 2px; }
-.knob-link.is-active .panel-label { color: var(--orange); }
+.knob-link.is-active .panel-label { color: var(--orange-deep); }
 
 /* pe telefon, un singur potențiometru deschide meniul */
 .menu-toggle {
@@ -219,9 +243,9 @@ p { margin: 0 0 1em; }
 }
 .btn:active { transform: translateY(2px); }
 .btn svg { width: 20px; height: 20px; flex: none; }
-.btn-primary { background: var(--orange); color: var(--cream); box-shadow: 0 4px 0 #8c4517; }
-.btn-primary:hover { background: var(--orange-2); }
-.btn-primary:active { box-shadow: 0 2px 0 #8c4517; }
+.btn-primary { background: var(--orange-deep); color: var(--cream); box-shadow: 0 4px 0 #6f3412; }
+.btn-primary:hover { background: #934718; }
+.btn-primary:active { box-shadow: 0 2px 0 #6f3412; }
 .btn-ghost { border-color: var(--cream); color: var(--cream); }
 .btn-ghost:hover { background: rgba(244,237,228,.1); }
 .btn-dark { background: var(--navy); color: var(--cream); box-shadow: 0 4px 0 #0c131b; }
@@ -232,7 +256,7 @@ p { margin: 0 0 1em; }
 .hero-grid {
   display: grid; grid-template-columns: 1.1fr .9fr; gap: 56px; align-items: center;
 }
-.hero-kicker { display: flex; align-items: center; gap: 12px; color: var(--grey); margin-bottom: 18px; }
+.hero-kicker { display: flex; align-items: center; gap: 12px; color: var(--grey-light); margin-bottom: 18px; }
 .hero h1 { font-size: clamp(40px, 5.4vw, 68px); }
 .hero h1 em { color: var(--orange); font-style: italic; }
 .hero-sub { font-size: 19px; color: rgba(244,237,228,.82); max-width: 34em; }
@@ -279,7 +303,7 @@ p { margin: 0 0 1em; }
 /* ---------- Secțiuni ---------- */
 .section { padding: 100px 0; }
 .section-head { max-width: 720px; margin-bottom: 52px; }
-.section-head .panel-label { color: var(--orange); display: inline-flex; align-items: center; gap: 10px; }
+.section-head .panel-label { color: var(--orange-light); display: inline-flex; align-items: center; gap: 10px; }
 .section-head .panel-label::before { content: ""; width: 28px; height: 2px; background: currentColor; }
 .section-head h2 { font-size: clamp(32px, 4vw, 48px); margin-top: 10px; }
 .section-head p { font-size: 18px; color: rgba(244,237,228,.72); }
@@ -298,11 +322,12 @@ p { margin: 0 0 1em; }
 /* ---------- Despre ---------- */
 .about-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 64px; align-items: center; }
 .about-photo { border-radius: 14px; overflow: hidden; border: 3px solid var(--cream-2); aspect-ratio: 4/5; }
-.about-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 40% 60%; }
+.about-photo picture { display: contents; }
+.about-photo img { width: 100%; height: 100%; object-fit: cover; }
 .about-text .lead { font-size: 21px; font-family: var(--font-heading); font-style: italic; }
 
 .signal-chain { margin-top: 30px; }
-.signal-chain .panel-label { color: var(--grey); display: block; margin-bottom: 18px; }
+.signal-chain .panel-label { color: var(--grey-light); display: block; margin-bottom: 18px; }
 .chain { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(5, 1fr); }
 .chain li { position: relative; text-align: center; padding: 0 4px; }
 .chain li:not(:last-child)::before { /* cablul până la pedala următoare */
@@ -368,7 +393,7 @@ p { margin: 0 0 1em; }
 .channel {
   border: 2px solid rgba(138,143,152,.35); border-radius: 12px; padding: 34px 26px 26px; background: var(--navy-3);
 }
-.channel .input-jack { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; color: var(--grey); }
+.channel .input-jack { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; color: var(--grey-light); }
 .channel .input-jack::before {
   content: ""; width: 26px; height: 26px; border-radius: 50%; background: var(--navy);
   box-shadow: 0 0 0 4px var(--grey), inset 0 0 0 7px #0c131b;
@@ -498,10 +523,9 @@ p { margin: 0 0 1em; }
 .article-card .thumb { height: 150px; position: relative; display: grid; place-items: center; }
 .article-card .thumb .knob { --size: 64px; }
 .article-card .body { padding: 22px 22px 26px; }
-.article-card .panel-label { color: var(--orange); font-size: 12px; }
+.article-card .panel-label { color: var(--orange-light); font-size: 12px; }
 .article-card h3 { font-size: 22px; margin: 6px 0 8px; }
 .article-card p { margin: 0; font-size: 15px; color: rgba(244,237,228,.7); }
-.article-card.soon { opacity: .65; pointer-events: none; }
 .articles-more { margin-top: 32px; text-align: center; }
 
 /* ---------- FAQ ---------- */
@@ -545,7 +569,7 @@ p { margin: 0 0 1em; }
 /* ---------- Footer ---------- */
 .site-footer { color: rgba(244,237,228,.75); padding: 46px 0 34px; font-size: 14px; }
 .footer-inner { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 24px; }
-.footer-inner .brand-plate { font-size: 20px; }
+.footer-inner .brand-plate { font-size: 26px; padding: 4px 16px 6px; }
 .footer-links { display: flex; flex-wrap: wrap; gap: 22px; list-style: none; margin: 0; padding: 0; }
 .footer-links a { text-decoration: none; }
 .footer-links a:hover { color: var(--orange-2); }
@@ -553,8 +577,11 @@ p { margin: 0 0 1em; }
 /* ---------- Pagină articol ---------- */
 .article-hero { color: var(--cream); padding: 70px 0 60px; }
 .article-hero h1 { font-size: clamp(34px, 4.6vw, 56px); max-width: 18em; }
-.article-meta { color: var(--grey); font-size: 15px; }
-.breadcrumbs { font-size: 14px; color: var(--grey); margin-bottom: 18px; }
+.article-meta { color: var(--grey-light); font-size: 15px; }
+.not-found { padding: 110px 0 120px; min-height: 60vh; }
+.not-found .panel-label { color: var(--orange-light); }
+.not-found .hero-actions { margin-top: 28px; }
+.breadcrumbs { font-size: 14px; color: var(--grey-light); margin-bottom: 18px; }
 .breadcrumbs a { text-decoration: none; }
 .breadcrumbs a:hover { color: var(--orange-2); }
 .prose { max-width: 740px; margin: 0 auto; padding: 70px 24px 90px; font-size: 18px; }
@@ -573,7 +600,7 @@ p { margin: 0 0 1em; }
   margin: 1.8em 0; padding: 20px 24px 8px; border-radius: 12px;
   background: var(--navy-3); border: 2px solid rgba(138,143,152,.35); border-left: 4px solid var(--orange);
 }
-.tldr .panel-label { color: var(--orange-2); font-size: 12px; }
+.tldr .panel-label { color: var(--orange-light); font-size: 12px; }
 .tldr ul { margin: 10px 0 0; }
 .table-wrap { overflow-x: auto; margin: 1.6em 0; }
 /* desene de acorduri */
@@ -590,10 +617,10 @@ p { margin: 0 0 1em; }
 .chord .dot { fill: var(--orange); }
 .chord text { fill: var(--cream); font: 600 9.5px var(--font-body); text-anchor: middle; }
 .chord figcaption { font-family: var(--font-panel); font-size: 18px; letter-spacing: .06em; line-height: 1.2; }
-.chord figcaption span { display: block; font-family: var(--font-body); font-size: 13px; letter-spacing: 0; color: var(--grey); }
+.chord figcaption span { display: block; font-family: var(--font-body); font-size: 13px; letter-spacing: 0; color: var(--grey-light); }
 .prose table { width: 100%; border-collapse: collapse; font-size: 16px; }
 .prose th, .prose td { padding: 11px 14px; text-align: left; border-bottom: 1px solid rgba(244,237,228,.14); vertical-align: top; }
-.prose th { font-family: var(--font-panel); font-weight: 500; text-transform: uppercase; letter-spacing: .1em; font-size: 13px; color: var(--grey); border-bottom-width: 2px; }
+.prose th { font-family: var(--font-panel); font-weight: 500; text-transform: uppercase; letter-spacing: .1em; font-size: 13px; color: var(--grey-light); border-bottom-width: 2px; }
 .prose td:first-child { font-weight: 600; }
 .cta-box {
   margin-top: 56px; background: var(--navy-3); color: var(--cream); border: 2px solid rgba(138,143,152,.35); border-radius: 14px; padding: 34px;
@@ -642,7 +669,7 @@ p { margin: 0 0 1em; }
   .wrap { padding: 0 16px; }
   .amp-head { padding: 5px; gap: 5px; }
   .amp-grille { padding: 0 14px; }
-  .amp-logo { font-size: 23px; }
+  .amp-logo { font-size: 30px; }
   .panel-power { padding: 6px 10px 0; }
   .hero { padding-top: 44px; }
   .hero-actions .btn { flex: 1 1 100%; }
