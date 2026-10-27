@@ -596,6 +596,21 @@ p { margin: 0 0 1em; }
 .prose img { border-radius: 12px; margin: 1.5em 0; }
 .prose a:not(.btn) { color: var(--orange-2); text-underline-offset: 3px; }
 .prose a:not(.btn):hover { color: var(--cream); }
+.prose a.gear { /* produs recomandat: evidențiat, cu link spre magazin */
+  color: var(--cream); font-weight: 600; text-decoration: none;
+  background: rgba(201,106,45,.18); border-bottom: 2px solid var(--orange);
+  border-radius: 4px 4px 0 0; padding: 0 .25em;
+  -webkit-box-decoration-break: clone; box-decoration-break: clone;
+  transition: background .2s ease;
+}
+.prose a.gear .gear-end { white-space: nowrap; } /* ultimul cuvânt rămâne lipit de săgeată */
+.prose a.gear .gear-end::after { /* săgeată de link extern */
+  content: ""; display: inline-block; width: .6em; height: .6em; margin-left: .3em; vertical-align: .05em;
+  background: var(--orange-light);
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M4 1.5h6.5V8M10.5 1.5 1.5 10.5' fill='none' stroke='%23000' stroke-width='2'/%3E%3C/svg%3E") center / contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath d='M4 1.5h6.5V8M10.5 1.5 1.5 10.5' fill='none' stroke='%23000' stroke-width='2'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+.prose a.gear:hover { color: var(--cream); background: rgba(201,106,45,.38); }
 .tldr { /* caseta „Pe scurt” de la începutul articolului */
   margin: 1.8em 0; padding: 20px 24px 8px; border-radius: 12px;
   background: var(--navy-3); border: 2px solid rgba(138,143,152,.35); border-left: 4px solid var(--orange);
