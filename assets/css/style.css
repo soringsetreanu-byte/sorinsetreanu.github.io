@@ -324,7 +324,10 @@ p { margin: 0 0 1em; }
 .about-photo { border-radius: 14px; overflow: hidden; border: 3px solid var(--cream-2); aspect-ratio: 4/5; }
 .about-photo picture { display: contents; }
 .about-photo img { width: 100%; height: 100%; object-fit: cover; }
-.about-text .lead { font-size: 21px; font-family: var(--font-heading); font-style: italic; }
+.lead { font-family: var(--font-heading); font-style: italic; } /* fraza scrisă „de mână”, cu italicul de la titluri */
+.about-text .lead { font-size: 21px; }
+.hero-sub.lead { font-size: 22px; }
+.section-head p.lead, .score p.lead { font-size: 20px; }
 
 .signal-chain { margin-top: 30px; }
 .signal-chain .panel-label { color: var(--grey-light); display: block; margin-bottom: 18px; }
