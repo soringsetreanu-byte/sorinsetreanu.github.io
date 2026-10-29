@@ -39,3 +39,10 @@ document.querySelectorAll('.reveal, .vu').forEach(el => io.observe(el));
 
 // Anul curent în footer
 document.querySelectorAll('[data-year]').forEach(el => { el.textContent = new Date().getFullYear(); });
+
+// Comutatoarele de pe carduri: pornești cardul
+document.querySelectorAll('.feature .toggle').forEach(btn => btn.addEventListener('click', () => {
+  const on = btn.getAttribute('aria-pressed') !== 'true';
+  btn.setAttribute('aria-pressed', on);
+  btn.closest('.feature').classList.toggle('is-on', on);
+}));

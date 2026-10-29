@@ -362,16 +362,32 @@ p { margin: 0 0 1em; }
   background: var(--navy-3); border: 2px solid rgba(138,143,152,.35); border-radius: var(--radius);
   padding: 26px 24px 22px;
 }
-.feature h3 { font-size: 22px; margin-bottom: 8px; }
-.feature p { margin: 0; color: rgba(244,237,228,.78); font-size: 16px; }
-.toggle { /* comutator de amp */
-  width: 22px; height: 38px; border-radius: 11px; margin-bottom: 18px; position: relative;
+.feature.reveal { transition: opacity .7s, transform .7s, background-color .35s, border-color .35s, box-shadow .35s; }
+.feature h3 { font-size: 22px; margin-bottom: 8px; transition: color .35s; }
+.feature p { margin: 0; color: rgba(244,237,228,.78); font-size: 16px; transition: color .35s; }
+/* cardul „pornit” */
+.feature.is-on { background: var(--orange-2); border-color: var(--orange-light); box-shadow: 0 0 28px rgba(224,127,62,.35); }
+.feature.is-on h3, .feature.is-on p { color: var(--navy); }
+
+.toggle { /* comutator basculant O/I, ca POWER-ul de pe amp */
+  display: block; margin-bottom: 16px; padding: 3px; cursor: pointer;
+  width: 34px; height: 52px; border-radius: 6px;
   background: #0c131b; border: 2px solid var(--grey);
 }
-.toggle::after {
-  content: ""; position: absolute; left: 3px; top: 3px; width: 12px; height: 16px; border-radius: 6px;
-  background: linear-gradient(#f5f5f5, #b9bcc2);
+.toggle:focus-visible { outline: 2px solid var(--orange-light); outline-offset: 3px; }
+.rocker {
+  display: flex; flex-direction: column; height: 100%; border-radius: 3px; overflow: hidden;
+  font: 700 13px/1 var(--font-body); color: var(--grey-light);
+  background: #2c323a;
+  transition: background .15s, color .15s;
 }
+.rocker span { flex: 1; display: grid; place-items: center; }
+.rocker-i { border-bottom: 1px solid #0c131b; }
+.rocker-o { opacity: .5; }
+/* PORNIT: se aprinde */
+.toggle[aria-pressed="true"] .rocker { background: var(--orange-light); color: #fff6ee; }
+.feature.is-on .toggle { border-color: var(--navy); background: var(--navy); }
+.feature.is-on .rocker { color: var(--navy); }
 
 .spec-plate {
   background: var(--cream); color: var(--navy);
