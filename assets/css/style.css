@@ -543,7 +543,7 @@ p { margin: 0 0 1em; }
 .article-card .thumb .knob { --size: 64px; }
 .article-card .body { padding: 22px 22px 26px; }
 .article-card .panel-label { color: var(--orange-light); font-size: 12px; }
-.article-card h3 { font-size: 22px; margin: 6px 0 8px; }
+.article-card h2, .article-card h3 { font-size: 22px; margin: 6px 0 8px; }
 .article-card p { margin: 0; font-size: 15px; color: rgba(244,237,228,.7); }
 .articles-more { margin-top: 32px; text-align: center; }
 
@@ -589,8 +589,8 @@ p { margin: 0 0 1em; }
 .site-footer { color: rgba(244,237,228,.75); padding: 46px 0 34px; font-size: 14px; }
 .footer-inner { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 24px; }
 .footer-inner .brand-plate { font-size: 26px; padding: 4px 16px 6px; }
-.footer-links { display: flex; flex-wrap: wrap; gap: 22px; list-style: none; margin: 0; padding: 0; }
-.footer-links a { text-decoration: none; }
+.footer-links { display: flex; flex-wrap: wrap; gap: 6px 22px; list-style: none; margin: 0; padding: 0; }
+.footer-links a { display: inline-block; padding: 8px 0; text-decoration: none; } /* zonă de atins mai mare pe telefon */
 .footer-links a:hover { color: var(--orange-2); }
 
 /* ---------- Pagină articol ---------- */

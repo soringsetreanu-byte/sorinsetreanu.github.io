@@ -20,6 +20,8 @@
   <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
   <link rel="preload" href="assets/fonts/playfair-display-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/css/style.css">
+  <!-- fără JavaScript, secțiunile care apar la scroll rămân vizibile -->
+  <noscript><style>.reveal { opacity: 1; transform: none; } .vu-needle { transform: rotate(48deg); }</style></noscript>
 
   <script type="application/ld+json">
   {
@@ -101,18 +103,18 @@
       <h1>Cele mai marfă lecții de chitară din București, <em>sper...</em></h1>
       <p class="hero-sub lead">Salut, sunt Sorin, noul tău prof de chitară.</p>
       <div class="hero-actions">
-        <a class="btn btn-primary" href="tel:+40737513037"><svg><use href="#i-phone"/></svg>Sună-mă</a>
-        <a class="btn btn-ghost" href="https://wa.me/40737513037?text=Salut%20Sorin!%20Vreau%20s%C4%83%20m%C4%83%20programez%20la%20o%20lec%C8%9Bie%20de%20chitar%C4%83." target="_blank" rel="noopener"><svg><use href="#i-whatsapp"/></svg>Scrie-mi pe WhatsApp</a>
+        <a class="btn btn-primary" href="tel:+40737513037"><svg aria-hidden="true"><use href="#i-phone"/></svg>Sună-mă</a>
+        <a class="btn btn-ghost" href="https://wa.me/40737513037?text=Salut%20Sorin!%20Vreau%20s%C4%83%20m%C4%83%20programez%20la%20o%20lec%C8%9Bie%20de%20chitar%C4%83." target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-whatsapp"/></svg>Scrie-mi pe WhatsApp</a>
       </div>
     </div>
 
     <div class="cabinet grille">
       <div class="cabinet-photo">
-        <img src="assets/img/sorin-hero-860.jpg" srcset="assets/img/sorin-hero-430.jpg 430w, assets/img/sorin-hero-860.jpg 860w" sizes="(max-width: 980px) 88vw, 440px" alt="Sorin Șetreanu cântând la chitară electrică pe scenă" width="860" height="1075" fetchpriority="high">
+        <img src="assets/img/sorin-hero-860.jpg" srcset="assets/img/sorin-hero-430.jpg 430w, assets/img/sorin-hero-860.jpg 860w" sizes="(max-width: 980px) min(calc(100vw - 78px), 414px), 430px" alt="Sorin Șetreanu cântând la chitară electrică pe scenă" width="860" height="1075" fetchpriority="high">
       </div>
       <div class="cabinet-badge">
         <strong>5,0</strong>
-        <div><div class="stars" aria-label="5 stele">★★★★★</div><span style="font-size:13px">pe Google</span></div>
+        <div><div class="stars" role="img" aria-label="5 stele">★★★★★</div><span style="font-size:13px">pe Google</span></div>
       </div>
     </div>
   </div>
@@ -121,7 +123,8 @@
     <ul class="wrap">
       <li><span class="knob is-max" style="--angle:60deg"><span class="knob-cap"></span></span><div><strong>10 ani</strong><span>de cântat la chitară</span></div></li>
       <li><span class="knob is-max" style="--angle:20deg"><span class="knob-cap"></span></span><div><strong>5 ani</strong><span>de predat</span></div></li>
-      <li><span class="knob is-max"><span class="knob-cap"></span></span><div><strong>5,0 ★</strong><span>recenzii pe Google</span></div></li>    </ul>
+      <li><span class="knob is-max"><span class="knob-cap"></span></span><div><strong>5,0 ★</strong><span>recenzii pe Google</span></div></li>
+    </ul>
   </div>
 </section>
 
@@ -257,10 +260,10 @@
       </div>
       <div class="score">
         <strong>5,0</strong>
-        <div class="stars" aria-label="5 din 5 stele">★★★★★</div>
+        <div class="stars" role="img" aria-label="5 din 5 stele">★★★★★</div>
         <p class="lead">17 recenzii pe Google Maps, toate de 5 stele. Și nu, niciuna nu e de la mama.</p>
       </div>
-      <a class="btn btn-primary" href="https://maps.google.com/?cid=17133961203990087716" target="_blank" rel="noopener"><svg><use href="#i-star"/></svg>Vezi recenziile</a>
+      <a class="btn btn-primary" href="https://maps.google.com/?cid=17133961203990087716" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-star"/></svg>Vezi recenziile</a>
     </div>
 
     <!-- Stiva de tocuri: recenzii reale de pe Google Maps, semnate doar cu prenumele.
@@ -345,13 +348,13 @@
       <div class="contact-card screws reveal">
         <h3>Programează o lecție</h3>
         <div class="contact-actions">
-          <a class="btn btn-primary" href="tel:+40737513037"><svg><use href="#i-phone"/></svg>0737 513 037</a>
-          <a class="btn btn-dark" href="https://wa.me/40737513037?text=Salut%20Sorin!%20Vreau%20s%C4%83%20m%C4%83%20programez%20la%20o%20lec%C8%9Bie%20de%20chitar%C4%83." target="_blank" rel="noopener"><svg><use href="#i-whatsapp"/></svg>WhatsApp</a>
+          <a class="btn btn-primary" href="tel:+40737513037"><svg aria-hidden="true"><use href="#i-phone"/></svg>0737 513 037</a>
+          <a class="btn btn-dark" href="https://wa.me/40737513037?text=Salut%20Sorin!%20Vreau%20s%C4%83%20m%C4%83%20programez%20la%20o%20lec%C8%9Bie%20de%20chitar%C4%83." target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-whatsapp"/></svg>WhatsApp</a>
         </div>
         <ul class="contact-info">
-          <li><svg><use href="#i-pin"/></svg><span>Strada Matei Voievod 114<br>Sector 2, București</span></li>
-          <li><svg><use href="#i-clock"/></svg><span>Program flexibil, cu weekenduri incluse</span></li>
-          <li><svg><use href="#i-instagram"/></svg><a href="https://www.instagram.com/sorinsetreanu" target="_blank" rel="noopener">@sorinsetreanu</a></li>
+          <li><svg aria-hidden="true"><use href="#i-pin"/></svg><span>Strada Matei Voievod 114<br>Sector 2, București</span></li>
+          <li><svg aria-hidden="true"><use href="#i-clock"/></svg><span>Program flexibil, cu weekenduri incluse</span></li>
+          <li><svg aria-hidden="true"><use href="#i-instagram"/></svg><a href="https://www.instagram.com/sorinsetreanu" target="_blank" rel="noopener">@sorinsetreanu</a></li>
         </ul>
       </div>
       <div class="map reveal">
