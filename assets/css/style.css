@@ -137,6 +137,8 @@ p { margin: 0 0 1em; }
   box-shadow: 0 0 0 3px var(--grey-2), 0 0 14px 3px rgba(224,127,62,.0);
   animation: power-on 1.6s ease-out .3s forwards;
 }
+/* becul se aprinde doar la prima pagină din vizită, nu la fiecare schimbare de pagină */
+.amp-on .jewel { animation: none; box-shadow: 0 0 0 3px var(--grey-2), 0 0 18px 4px rgba(224,127,62,.55); }
 @keyframes power-on {
   0%   { box-shadow: 0 0 0 3px var(--grey-2), 0 0 0 0 rgba(224,127,62,0); filter: brightness(.5); }
   30%  { filter: brightness(1.2); }
@@ -196,6 +198,28 @@ p { margin: 0 0 1em; }
   box-shadow: 0 0 0 3px #c9ccd1, 0 0 0 4px var(--grey-2);
 }
 .panel-power .jewel { margin: 9px 0 9px; }
+
+/* comutatorul de limbă RO / EN, ca un selector de canal */
+.panel-lang {
+  display: flex; flex-direction: column; align-items: center; gap: 9px;
+  padding: 6px 12px 0; border-left: 1px solid rgba(30,42,56,.18);
+  color: var(--navy); text-decoration: none;
+}
+.panel-lang .panel-label { font-size: 11px; color: var(--grey-2); }
+.lang-switch {
+  display: flex; align-items: center; gap: 2px; height: 34px; padding: 0 3px;
+  background: #0c131b; border-radius: 6px;
+  box-shadow: 0 0 0 2px #c9ccd1, 0 0 0 3px var(--grey-2);
+}
+.lang-switch span {
+  font-family: var(--font-panel); font-weight: 500; font-size: 12px; letter-spacing: .08em;
+  line-height: 1; padding: 6px 6px 5px; border-radius: 4px; color: var(--grey-light);
+  transition: color .2s, background .2s;
+}
+.lang-switch .is-on { background: var(--orange-deep); color: var(--cream); }
+.panel-lang:hover .lang-switch span:not(.is-on) { color: var(--cream); }
+.panel-lang:focus-visible { outline: 2px solid var(--orange); outline-offset: 2px; border-radius: 8px; }
+.reviews-note { margin: 28px 0 0; text-align: center; font-size: 14px; color: var(--grey-light); }
 
 .brand-plate {
   font-family: var(--font-logo); font-weight: 400;
@@ -662,6 +686,15 @@ p { margin: 0 0 1em; }
 .cta-box h2 { margin-top: 0; font-size: 28px; }
 .cta-box .hero-actions { margin: 20px 0 0; }
 
+/* ---------- Trecere lină între pagini (RO/EN, articole) ---------- */
+/* Browserele care știu View Transitions fac un fade; celelalte schimbă pagina normal. */
+@view-transition { navigation: auto; }
+/* headerul rămâne pe loc, doar conținutul de sub el se schimbă */
+.site-header { view-transition-name: site-header; }
+::view-transition-group(site-header) { z-index: 60; }
+::view-transition-old(root), ::view-transition-new(root) { animation-duration: .35s; }
+::view-transition-old(site-header), ::view-transition-new(site-header) { animation-duration: .25s; }
+
 /* ---------- Animații la scroll ---------- */
 .reveal { opacity: 0; transform: translateY(24px); transition: opacity .7s, transform .7s; }
 .reveal.is-visible { opacity: 1; transform: none; }
@@ -704,7 +737,9 @@ p { margin: 0 0 1em; }
   .amp-head { padding: 5px; gap: 5px; }
   .amp-grille { padding: 0 14px; }
   .amp-logo { font-size: 30px; }
-  .panel-power { padding: 6px 10px 0; }
+  /* pe telefon becul decorativ face loc comutatorului de limbă */
+  .panel-power { display: none; }
+  .panel-lang { padding: 6px 8px 0; }
   .hero { padding-top: 44px; }
   .hero-actions .btn { flex: 1 1 100%; }
   .cabinet-badge { left: 8px; bottom: 24px; }
@@ -736,6 +771,7 @@ p { margin: 0 0 1em; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
+  @view-transition { navigation: none; }
   *, *::before, *::after { animation: none !important; transition: none !important; }
   .reveal { opacity: 1; transform: none; }
   .jewel { box-shadow: 0 0 0 3px var(--grey-2), 0 0 18px 4px rgba(224,127,62,.55); }

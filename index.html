@@ -6,6 +6,9 @@
   <title>Lecții de chitară București, Sector 2 | Sorin Șetreanu</title>
   <meta name="description" content="Lecții de chitară față în față în București, Sector 2 (Matei Voievod). Pentru copii de la 5 ani, adolescenți și adulți. Învățăm prin piese, practic și relaxat.">
   <link rel="canonical" href="https://sorinsetreanu.ro/">
+  <link rel="alternate" hreflang="ro" href="https://sorinsetreanu.ro/">
+  <link rel="alternate" hreflang="en" href="https://sorinsetreanu.ro/en/">
+  <link rel="alternate" hreflang="x-default" href="https://sorinsetreanu.ro/">
   <meta name="theme-color" content="#1E2A38">
 
   <meta property="og:type" content="website">
@@ -20,6 +23,7 @@
   <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
   <link rel="preload" href="assets/fonts/playfair-display-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="assets/css/style.css">
+  <script>try{if(sessionStorage.getItem("amp-on"))document.documentElement.classList.add("amp-on");sessionStorage.setItem("amp-on","1")}catch(e){}</script>
   <!-- fără JavaScript, secțiunile care apar la scroll rămân vizibile -->
   <noscript><style>.reveal { opacity: 1; transform: none; } .vu-needle { transform: rotate(48deg); }</style></noscript>
 
@@ -48,6 +52,8 @@
     "sameAs": ["https://www.instagram.com/sorinsetreanu", "https://maps.google.com/?cid=17133961203990087716"]
   }
   </script>
+  <!-- când pui mouse-ul pe RO/EN, browserul descarcă deja cealaltă pagină -->
+  <script type="speculationrules">{"prefetch":[{"where":{"selector_matches":".panel-lang"},"eagerness":"moderate"}]}</script>
 </head>
 <body>
 
@@ -86,6 +92,11 @@
         <button class="menu-toggle" aria-expanded="false" aria-controls="meniu">
           <span class="knob"><span class="knob-cap"></span></span><span class="panel-label">Meniu</span>
         </button>
+
+        <a class="panel-lang" href="en/" hreflang="en" lang="en" aria-label="Read this page in English">
+          <span class="lang-switch" aria-hidden="true"><span class="is-on">RO</span><span>EN</span></span>
+          <span class="panel-label" aria-hidden="true">Lang</span>
+        </a>
 
         <span class="panel-power" aria-hidden="true"><span class="jewel"></span><span class="panel-label">Power</span></span>
       </div>
@@ -241,7 +252,7 @@
   <div class="wrap">
     <div class="section-head reveal">
       <span class="panel-label">Recenzii</span>
-      <h2>Ce zic elevii, pe volum maxim</h2>
+      <h2>Ce zic elevii</h2>
     </div>
 
     <div class="reviews-box reveal">
@@ -373,6 +384,7 @@
     <ul class="footer-links">
       <li><a href="#lectii">Lecții</a></li>
       <li><a href="articole/">Articole</a></li>
+      <li><a href="en/" hreflang="en" lang="en">English</a></li>
       <li><a href="https://www.instagram.com/sorinsetreanu" target="_blank" rel="noopener">Instagram</a></li>
       <li><a href="tel:+40737513037">0737 513 037</a></li>
     </ul>
